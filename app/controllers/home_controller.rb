@@ -65,7 +65,7 @@ class HomeController < ApplicationController
         circuit_menu = ["■처음으로",
                 "2114 / 1024 x 4 SRAM",
                 "2716 / NMOS 128K 16K x 8 UV EPROM",
-                "4001 / 4001B / Quad 2 Input NOR Buffered Gate1",
+                "4001 / 4001B / Quad 2 Input NOR Buffered Gate",
                 "4011 / Quad 2-Input NAND Buffered Series",
                 "4050 / 4050B / Hex Non-Inverting Buffer",
                 "4520 / 4520B / Dual 4-Bit Binary Counter",
@@ -259,7 +259,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok             
             
             
-                                    elsif content == "2114"
+                                    elsif content == "2114 / 1024 x 4 SRAM"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -280,7 +280,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok                   
             
             
-                                    elsif content == "2716"
+                                    elsif content == "2716 / NMOS 128K 16K x 8 UV EPROM"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -300,7 +300,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
                                         
-                                    elsif content == "4001"
+                                    elsif content == "4001 / 4001B / Quad 2 Input NOR Buffered Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -320,7 +320,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                           
                                         
-                                    elsif content == "4011"
+                                    elsif content == "4011 / Quad 2-Input NAND Buffered Series"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -340,7 +340,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                           
                                         
-                                    elsif content == "4050"
+                                    elsif content == "4050 / 4050B / Hex Non-Inverting Buffer"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -360,7 +360,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                           
                                         
-                                    elsif content == "4520"
+                                    elsif content == "4520 / 4520B / Dual 4-Bit Binary Counter"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -380,7 +380,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                           
                                         
-                                    elsif content == "7400"
+                                    elsif content == "7400 / 74LS00 / Quad 2-Input NAND Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -400,7 +400,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                           
 
-                                    elsif content == "7402"
+                                    elsif content == "7402 / 74LS02 / Quad 2-Input Nor Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -421,7 +421,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok   
 
 
-                                    elsif content == "7403"
+                                    elsif content == "7403 / 74LS03 / Quad 2-Input Nand Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -441,7 +441,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7404"
+                                    elsif content == "7404 / 74LS04 / Hex Inverter"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -461,7 +461,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7405"
+                                    elsif content == "7405 / 74LS05 / Hex Inverter"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -480,7 +480,7 @@ class HomeController < ApplicationController
                                           }
                                         }
                                         render json: msg, status: :ok   
-                                    elsif content == "7406"
+                                    elsif content == "7406 / 74LS06 / Hex Inverted Buffers with OC Outputs"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -501,7 +501,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok   
 
 
-                                    elsif content == "7408"
+                                    elsif content == "7408 / 74LS08 / Quad 2-Input AND Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -521,7 +521,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7410"
+                                    elsif content == "7410 / 74LS10 / Triple 3-Input NAND Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -541,7 +541,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7411"
+                                    elsif content == "7411 / 74LS11 / Triple 3 Input AND Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -561,7 +561,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7420"
+                                    elsif content == "7420 / 74LS20 / Dual 4-Input NAND Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -581,7 +581,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7421"
+                                    elsif content == "7421 / 74LS21 / Dual 4-Input Positive AND Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -600,7 +600,7 @@ class HomeController < ApplicationController
                                           }
                                         }
                                         render json: msg, status: :ok   
-                                    elsif content == "7432"
+                                    elsif content == "7432 / 74LS32 / Quad 2-Input OR Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -619,7 +619,7 @@ class HomeController < ApplicationController
                                           }
                                         }
                                         render json: msg, status: :ok   
-                                    elsif content == "7442"
+                                    elsif content == "7442 / 74LS42 / BCD to Decimal Decoder"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -639,7 +639,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7447"
+                                    elsif content == "7447 / 74LS47 / BCD to 7-segment Decoders/Drivers"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -660,7 +660,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok   
 
 
-                                    elsif content == "7472"
+                                    elsif content == "7472 / 74LS72 / AND-gated JK FF with Preset and Clear"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -680,7 +680,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7474"
+                                    elsif content == "7474 / 74LS02 / D Flip-Flop"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -700,7 +700,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok   
 
-                                    elsif content == "7476"
+                                    elsif content == "7476 / 74LS76 / Dual Master Slave J-K F-F"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -721,7 +721,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok 
 
 
-                                    elsif content == "7486"
+                                    elsif content == "7486 / 74LS86 / Quad 2-Input Exclusive-OR Gate"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -742,7 +742,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok 
 
 
-                                    elsif content == "7489"
+                                    elsif content == "7489 / 74LS89 / 64 Bit RAM"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -762,7 +762,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok 
 
-                                    elsif content == "7490"
+                                    elsif content == "7490 / 74LS90 / Decade and Binary Counters"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -782,7 +782,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok 
 
-                                    elsif content == "7493"
+                                    elsif content == "7493 / 74LS93 / Decade and Binary Counters"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -802,7 +802,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok 
 
-                                    elsif content == "74121"
+                                    elsif content == "74121 / 74LS121 / One-Shot with Clear and Complementary Outputs"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -822,7 +822,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok 
 
-                                    elsif content == "74138"
+                                    elsif content == "74138 / 74LS138 / Decoder / Demultiplexer"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -842,7 +842,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok 
 
-                                    elsif content == "74151"
+                                    elsif content == "74151 / 74LS151 / Data Selectors / Multiplexers"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -862,7 +862,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok 
 
-                                    elsif content == "74153"
+                                    elsif content == "74153 / 74LS153 / Data 4-Line to 1-Line Data Selectors / Mux"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -883,7 +883,7 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok 
                                         
                                         
-                                    elsif content == "74164"
+                                    elsif content == "74164 / 74LS164 / 8 BIT SIPO SHIFT REGISTER"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -903,7 +903,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                         
                                         
-                                    elsif content == "74169"
+                                    elsif content == "74169 / 74LS169 / 4-Bit Up / Down Binary Counter"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -923,7 +923,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                         
                                         
-                                    elsif content == "74390"
+                                    elsif content == "74390 / 74LS390 / Dual 4-Bit Decade Counter"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -943,7 +943,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok  
                                         
-                                    elsif content == "1N4001"
+                                    elsif content == "1N4001 / Diode"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -963,7 +963,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                        
                                         
-                                    elsif content == "1N4002"
+                                    elsif content == "1N4002 / Diode"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -983,7 +983,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                        
                                         
-                                    elsif content == "2N2222"
+                                    elsif content == "2N2222 / Transister"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -1003,7 +1003,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok
                                         
-                                    elsif content == "CA3046"
+                                    elsif content == "CA3046 / Transister"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -1023,7 +1023,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok                                        
                                         
-                                    elsif content == "CD4007"
+                                    elsif content == "CD4007 / Transister"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -1043,7 +1043,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok
                                         
-                                    elsif content == "MC1447UB"
+                                    elsif content == "MC14007UB / Dual Complementary Pair Plus Inverter"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -1065,7 +1065,7 @@ class HomeController < ApplicationController
                                       
                                         
 
-                                    elsif content == "FND507(7segment)"
+                                    elsif content == "FND507 / 7segment"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -1085,7 +1085,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok  
                                         
-                                    elsif content == "LM555(timer)"
+                                    elsif content == "LM555 / timer"
                                         msg = {
                                           message: {
                                             "photo": {
@@ -1105,7 +1105,7 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok  
                                         
-                                    elsif content == "LM741"
+                                    elsif content == "LM741 / Single Operational Amplifer"
                                         msg = {
                                           message: {
                                             "photo": {
