@@ -8,7 +8,8 @@ class HomeController < ApplicationController
             {
               type: "buttons",
               buttons: ["전자공학부 홈페이지", 
-              "종합정보시스템", 
+              "종합정보시스템",
+              "밥",
               "소자정보",
               "사용법",  
               "전자상식(추가중)",
@@ -33,18 +34,216 @@ class HomeController < ApplicationController
     
     end
     
-    def self.bob
-      bok_url = 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date=2018-04-18'
-      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date=2018-04-18',
+    def self.ygg1   ##양진재 아침
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'    # [2009, 1, 10] * '-' # => "2009-1-10"     
+      # dayday=time1.year+'-'+time1.month+'-'+time1.day
+      # bok_url = 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date=2018-04-18'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
                           headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+                          # parameters:{ :type => "", :date => dayday }
+                          # puts(dayday)
                           
-      puts(response.body["stores"][0]["menus"][0]["description"])                          
-      @meal = response.body["stores"][0]["menus"][0]["description"]
+      # time1.to_a
+      # time1.in_time_zone("Seoul")
+
+      # if time1.hour < 10
+      #   a=0                 #아침00시~ 10시까지 아침메뉴
+      #   elsif time1.hour < 14
+      #   a=1                   #난조빱이라 안되게따
+      # else
+      #   a=2
+      # end
+        
+      # puts(response.body["stores"][0]["menus"][0]["description"])                          
+      @meal1 = response.body["stores"][0]["menus"][0]["description"]
       # @meal = response.body["stores"]["menus"]["description"]
       # puts(response.body["stores"]["menus"].class)
-      return @meal
+      return @meal1
     end
-  
+    
+    def self.ygg2 #양진재 점심
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal2 = response.body["stores"][0]["menus"][1]["description"]
+      return @meal2
+    end
+    
+    def self.ygg3 #양진재 저녁
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal3 = response.body["stores"][0]["menus"][2]["description"]
+      return @meal3
+    end    
+    
+    def self.ysg1  #양성재 아침
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal4 = response.body["stores"][1]["menus"][0]["description"]
+      return @meal4
+    end
+    
+    def self.ysg2  #양성재 점심
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal5 = response.body["stores"][1]["menus"][1]["description"]
+      return @meal5
+    end    
+    
+    def self.ysg3  #양성재 저녁
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal6 = response.body["stores"][1]["menus"][2]["description"]
+      return @meal6
+    end    
+    
+    def self.gsg1 #개성재 아침
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @gsg1 = response.body["stores"][2]["menus"][0]["description"]
+      return @gsg1
+    end    
+    
+    def self.gsg2  #개성재 점심
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @gsg2 = response.body["stores"][2]["menus"][1]["description"]
+      return @gsg2
+    end    
+    
+    def self.gsg3  #개성재 저녁
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @gsg3 = response.body["stores"][2]["menus"][2]["description"]
+      return @gsg3
+    end
+    
+    def self.sh1   #신학1층 주먹밥[8:30~10:50]
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal21 = response.body["stores"][3]["menus"][0]["description"]
+      return @meal21
+    end    
+    
+    def self.sh2 #신학1층 백반
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal22 = response.body["stores"][3]["menus"][1]["description"]
+      return @meal22
+    end    
+    
+    def self.sh3   #신학1층 백반특식
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal23 = response.body["stores"][3]["menus"][2]["description"]
+      return @meal23
+    end    
+
+    def self.sh4   #일품[11:00~14:30]
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal24 = response.body["stores"][3]["menus"][3]["description"]
+      return @meal24
+    end    
+
+    def self.sh5   #양식[11:00~14:30]
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal25 = response.body["stores"][3]["menus"][4]["description"]
+      return @meal25
+    end    
+
+    def self.sh6   #분식[11:00~14:30]
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal26 = response.body["stores"][3]["menus"][5]["description"]
+      return @meal26
+    end    
+    
+    def self.sh7   #저녁
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal27 = response.body["stores"][3]["menus"][6]["description"]
+      return @meal27
+    end        
+    
+    def self.sh8   #면코너[10:00~17:30]
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal28 = response.body["stores"][3]["menus"][7]["description"]
+      return @meal28
+    end        
+    
+    def self.sh9   #간식코너
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @meal29 = response.body["stores"][3]["menus"][8]["description"]
+      return @meal29
+    end    
+
+
+    def self.bb1   #별빛레스토랑 신학2층
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @bb11 = response.body["stores"][4]["menus"][0]["description"]
+      return @bb11
+    end   
+    
+    def self.uh1   #은하수식당 점심
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @uh11 = response.body["stores"][5]["menus"][0]["description"]
+      return @uh11
+    end   
+    
+    def self.uh2   #은하수식당 저녁
+      time1=Time.now
+      dayday = [time1.year, time1.month, time1.day] * '-'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date='+dayday,
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+      @uh22 = response.body["stores"][5]["menus"][1]["description"]
+      return @uh22
+    end       
+    
+    
     def chat_control
       
         received_data = JSON.parse(request.raw_post)
@@ -56,12 +255,56 @@ class HomeController < ApplicationController
         
         main_menu = ["전자공학부 홈페이지",
         "종합정보시스템",
+        "밥",
         "소자정보", 
         "사용법",
         "전자상식(추가중)",
         "읽을거리",
         "충북대학교 어둠의게시판"]
-                                            
+        
+        food_menu =["■처음으로",
+        "양진재",
+        "양성재",
+        "개성재",
+        "한빛식당(신학1층)",
+        "별빛레스토랑(신학2층)",
+        "은하수식당(교직원식당)"
+        ]
+        
+        food_when1 =["■처음으로",  #양진재 아점저
+        "양진재 아침",
+        "양진재 점심",
+        "양진재 저녁"]
+
+        food_when2 =["■처음으로",  #양성재 아점저
+        "양성재 아침",
+        "양성재 점심",     
+        "양성재 저녁"]
+
+        food_when3 =["■처음으로",  #개성재 아점저
+        "개성재 아침",
+        "개성재 점심",     
+        "개성재 저녁"]
+        
+        food_when4 =["■처음으로",  #신학 메뉴
+        "주먹밥[8:30~10:50]",
+        "백반[11:00~14:00]",     
+        "백반특식[11:00~14:00]",
+        "일품[11:00~14:30]",
+        "양식[11:00~14:30]",
+        "분식[11:00~14:30]",
+        "저녁[16:30~18:30]",
+        "면코너[10:00~17:30]",
+        "간식코너[10:00~17:30]"]      
+        
+        food_when5 =["■처음으로",  #신학 2층 별빛레스토랑
+        "별빛레스토랑 점심[11:30~14:00]"]     
+        
+        food_when6 =["■처음으로", #은하수식당
+        "은하수식당 점심[11:30~13:30]",
+        "은하수식당 저녁[17:30~19:00]"]
+        
+        
         circuit_menu = ["■처음으로",
                 "2114 / 1024 x 4 SRAM",
                 "2716 / NMOS 128K 16K x 8 UV EPROM",
@@ -193,7 +436,7 @@ class HomeController < ApplicationController
               message: {
                     # "text": temperature.to_s(),
                     # "text": HomeController.index().to_s(),
-                    # "text": HomeController.bob().to_s(),
+                    # "text": HomeController.ygg1().to_s(),
                      "message_button": {
                         "label": "전자공학부",
                         "url": "http://elec.chungbuk.ac.kr/index.php"
@@ -227,8 +470,373 @@ class HomeController < ApplicationController
             }
             render json: msg, status: :ok
             
+        elsif content == "밥"
+            msg = {
+              message: {
+                "text":"항목을 선택해주세요."
+              },
+              
+              keyboard: {
+                type: "buttons",
+                buttons: food_menu
+              }
+            }
+            render json: msg, status: :ok
             
             
+                              elsif content == "양진재"
+                                  msg = {
+                                    message: {
+                                      "text":"평일아침 7:20~9:00\n평일점심 11:30~13:30\n평일저녁 17:30~19:10\n주말아침 08:00~09:00\n주말점심 12:00~13:00\n주말저녁 17:30~19:00"
+                                    },
+                                    
+                                    keyboard: {
+                                      type: "buttons",
+                                      buttons: food_when1
+                                    }
+                                  }
+                                  render json: msg, status: :ok                          
+            
+                                                    elsif content == "양진재 아침"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.ygg1().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when1
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok            
+            
+                                                    elsif content == "양진재 점심"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.ygg2().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when1
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+                                                        
+                                                    elsif content == "양진재 저녁"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.ygg3().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when1
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+
+                              elsif content == "양성재"
+                                  msg = {
+                                    message: {
+                                      "text":"평일아침 7:20~9:00\n평일점심 11:30~13:30\n평일저녁 17:30~19:10\n주말아침 08:00~09:00\n주말점심 12:00~13:00\n주말저녁 17:30~19:00"
+                                    },
+                                    
+                                    keyboard: {
+                                      type: "buttons",
+                                      buttons: food_when2
+                                    }
+                                  }
+                                  render json: msg, status: :ok                          
+            
+                                                    elsif content == "양성재 아침"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.ysg1().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when2
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok            
+            
+                                                    elsif content == "양성재 점심"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.ysg2().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when2
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+                                                        
+                                                    elsif content == "양성재 저녁"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.ysg3().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when2
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+
+                              elsif content == "개성재"
+                                  msg = {
+                                    message: {
+                                      "text":"평일아침 7:20~9:00\n평일점심 11:30~13:30\n평일저녁 17:30~19:10\n주말아침 08:00~09:00\n주말점심 12:00~13:00\n주말저녁 17:30~19:00"
+                                    },
+                                    
+                                    keyboard: {
+                                      type: "buttons",
+                                      buttons: food_when3
+                                    }
+                                  }
+                                  render json: msg, status: :ok                          
+            
+                                                    elsif content == "개성재 아침"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.gsg1().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when3
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok            
+            
+                                                    elsif content == "개성재 점심"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.gsg2().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when3
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+                                                        
+                                                    elsif content == "개성재 저녁"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.gsg3().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when3
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+                              elsif content == "한빛식당(신학1층)"
+                                  msg = {
+                                    message: {
+                                      "text":"메뉴를 골라주세요"
+                                    },
+                                    
+                                    keyboard: {
+                                      type: "buttons",
+                                      buttons: food_when4
+                                    }
+                                  }
+                                  render json: msg, status: :ok                          
+            
+                                                    elsif content == "주먹밥[8:30~10:50]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh1().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok            
+            
+                                                    elsif content == "백반[11:00~14:00]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh2().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+                                                        
+                                                    elsif content == "백반특식[11:00~14:00]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh3().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+                                                    elsif content == "일품[11:00~14:30]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh4().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+                                                    elsif content == "양식[11:00~14:30]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh5().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+                                                        
+                                                    elsif content == "분식[11:00~14:30]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh6().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+                                                        
+                                                    elsif content == "저녁[16:30~18:30]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh7().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok                                                        
+                                                        
+                                                     elsif content == "면코너[10:00~17:30]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh8().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok                                                       
+
+                                                     elsif content == "간식코너[10:00~17:30]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.sh9().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when4
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+                              elsif content == "별빛레스토랑(신학2층)"
+                                  msg = {
+                                    message: {
+                                      "text":"메뉴를 골라주세요"
+                                    },
+                                    
+                                    keyboard: {
+                                      type: "buttons",
+                                      buttons: food_when5
+                                    }
+                                  }
+                                  render json: msg, status: :ok 
+                                  
+                                                     elsif content == "별빛레스토랑 점심[11:30~14:00]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.bb1().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when5
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+                              elsif content == "은하수식당(교직원식당)"
+                                  msg = {
+                                    message: {
+                                      "text":"메뉴를 골라주세요"
+                                    },
+                                    
+                                    keyboard: {
+                                      type: "buttons",
+                                      buttons: food_when6
+                                    }
+                                  }
+                                  render json: msg, status: :ok 
+                                  
+                                                     elsif content == "은하수식당 점심[11:30~13:30]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.uh1().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when6
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+
+                                                     elsif content == "은하수식당 저녁[17:30~19:00]"
+                                                        msg = {
+                                                          message: {
+                                                            "text": HomeController.uh2().to_s()
+                                                          },
+                                                          
+                                                          keyboard: {
+                                                            type: "buttons",
+                                                            buttons: food_when6
+                                                          }
+                                                        }
+                                                        render json: msg, status: :ok
+                                                        
         elsif content == "소자정보"
             msg = {
               message: {
