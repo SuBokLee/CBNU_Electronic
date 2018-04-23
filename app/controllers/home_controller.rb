@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   # 충북대찌릿
-  require 'unirest'#깃 허브 테스트
+  require 'unirest'
 
   
     def keyboard_init
@@ -12,7 +12,7 @@ class HomeController < ApplicationController
               "바압",
               "소자정보",
               "사용법",  
-              "전자상식(공사중 도와주세요)",
+              "전자상식(공사중)",
               "읽을거리(랜덤)",   
               "충북대학교 어둠의게시판"]
             }
@@ -258,7 +258,7 @@ class HomeController < ApplicationController
         "바압",
         "소자정보", 
         "사용법",
-        "전자상식(공사중 도와주세요)",
+        "전자상식(공사중)",
         "읽을거리(랜덤)",
         "충북대학교 어둠의게시판"]
         
@@ -2102,7 +2102,7 @@ class HomeController < ApplicationController
 
 
                                         
-        elsif content == "전자상식(공사중 도와주세요)"
+        elsif content == "전자상식(공사중)"
             msg = {
               message: {
                 text: "원하는 과목을 선택해주세요."
