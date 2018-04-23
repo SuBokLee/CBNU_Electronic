@@ -12,7 +12,7 @@ class HomeController < ApplicationController
               "소자정보",
               "사용법",  
               "전자상식(추가중)",
-              "랜덤정보(누를때마다바뀜)",   
+              "읽을거리",   
               "충북대학교 어둠의게시판"]
             }
         render json: msg, status: :ok
@@ -59,7 +59,7 @@ class HomeController < ApplicationController
         "소자정보", 
         "사용법",
         "전자상식(추가중)",
-        "랜덤정보(누를때마다바뀜)",
+        "읽을거리",
         "충북대학교 어둠의게시판"]
                                             
         circuit_menu = ["■처음으로",
@@ -76,7 +76,7 @@ class HomeController < ApplicationController
                 "7405",
                 "7406",
                 "7408",
-                "7410",
+                "7410 / 74LS10 / SN7410 / SN74LS10 / Triple 3-Input NAND Gate",
                 "7411",
                 "7420",
                 "7421",
@@ -1550,7 +1550,7 @@ class HomeController < ApplicationController
 
 
 
-        elsif content == "랜덤정보(누를때마다바뀜)"
+        elsif content == "읽을거리"
             msg = {
               message: {
                 text: random_reply
