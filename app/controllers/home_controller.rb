@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   # 충북대찌릿
   require 'unirest'#깃 허브 테스트
   # for test
+  # for test 22
   
     def keyboard_init
         msg =
