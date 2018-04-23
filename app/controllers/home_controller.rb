@@ -9,10 +9,10 @@ class HomeController < ApplicationController
               type: "buttons",
               buttons: ["전자공학부 홈페이지", 
               "종합정보시스템",
-              "밥",
+              "바압",
               "소자정보",
               "사용법",  
-              "전자상식(추가중)",
+              "전자상식(공사중)",
               "읽을거리",   
               "충북대학교 어둠의게시판"]
             }
@@ -255,10 +255,10 @@ class HomeController < ApplicationController
         
         main_menu = ["전자공학부 홈페이지",
         "종합정보시스템",
-        "밥",
+        "바압",
         "소자정보", 
         "사용법",
-        "전자상식(추가중)",
+        "전자상식(공사중)",
         "읽을거리",
         "충북대학교 어둠의게시판"]
         
@@ -2102,7 +2102,7 @@ class HomeController < ApplicationController
 
 
                                         
-        elsif content == "전자상식(추가중)"
+        elsif content == "전자상식(공사중)"
             msg = {
               message: {
                 text: "원하는 과목을 선택해주세요."
