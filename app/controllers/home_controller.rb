@@ -470,7 +470,7 @@ class HomeController < ApplicationController
             }
             render json: msg, status: :ok
             
-        elsif content == "밥"
+        elsif content == "바압"
             msg = {
               message: {
                 "text":"항목을 선택해주세요."
