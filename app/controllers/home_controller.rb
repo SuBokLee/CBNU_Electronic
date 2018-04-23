@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
   # 충북대찌릿
   require 'unirest'#깃 허브 테스트
-  # for test
-  # for test 22
+
   
     def keyboard_init
         msg =
@@ -194,7 +193,7 @@ class HomeController < ApplicationController
               message: {
                     # "text": temperature.to_s(),
                     # "text": HomeController.index().to_s(),
-                    "text": HomeController.bob().to_s(),
+                    # "text": HomeController.bob().to_s(),
                      "message_button": {
                         "label": "전자공학부",
                         "url": "http://elec.chungbuk.ac.kr/index.php"
