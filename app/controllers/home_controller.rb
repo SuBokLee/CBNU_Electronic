@@ -1596,14 +1596,6 @@ class HomeController < ApplicationController
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
         else
             msg = {
               message: {
@@ -1621,7 +1613,24 @@ class HomeController < ApplicationController
         end
     end
     
-    
+
+
+
+    def friend
+        if request.method == 'POST'
+            render status: 200
+        elsif request.method == 'DELETE'
+            render status: 200
+        end
+    end
+
+
+    # 채팅방 나갔을 때 구현
+    def chat_room
+        if request.method == 'DELETE'
+            render status: 200
+        end
+    end
     
     
     
