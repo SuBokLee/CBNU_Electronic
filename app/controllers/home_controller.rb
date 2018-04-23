@@ -12,8 +12,8 @@ class HomeController < ApplicationController
               "바압",
               "소자정보",
               "사용법",  
-              "전자상식(공사중)",
-              "읽을거리",   
+              "전자상식(공사중 도와주세요)",
+              "읽을거리(랜덤)",   
               "충북대학교 어둠의게시판"]
             }
         render json: msg, status: :ok
@@ -258,8 +258,8 @@ class HomeController < ApplicationController
         "바압",
         "소자정보", 
         "사용법",
-        "전자상식(공사중)",
-        "읽을거리",
+        "전자상식(공사중 도와주세요)",
+        "읽을거리(랜덤)",
         "충북대학교 어둠의게시판"]
         
         food_menu =["■처음으로",
@@ -2102,7 +2102,7 @@ class HomeController < ApplicationController
 
 
                                         
-        elsif content == "전자상식(공사중)"
+        elsif content == "전자상식(공사중 도와주세요)"
             msg = {
               message: {
                 text: "원하는 과목을 선택해주세요."
@@ -2158,7 +2158,7 @@ class HomeController < ApplicationController
 
 
 
-        elsif content == "읽을거리"
+        elsif content == "읽을거리(랜덤)"
             msg = {
               message: {
                 text: random_reply
