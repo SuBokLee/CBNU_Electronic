@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   # 충북대찌릿
+  require 'unirest'
   
     def keyboard_init
         msg =
@@ -16,38 +17,33 @@ class HomeController < ApplicationController
         render json: msg, status: :ok
     end
     
-    # def index #날씨
-    # # url = 'api.openweathermap.org/data/2.5/weather?id=1845604&appid=8354ba5e11c5b42f5cd7edd3b2f2f6c0'
-    # response = Unirest.get 'https://api.openweathermap.org/data/2.5/weather?id=1845604&appid=8354ba5e11c5b42f5cd7edd3b2f2f6c0&units=metric', 
-    #                     headers:{ "Accept" => "application/json" }
+    def self.index #날씨
+      # url = 'api.openweathermap.org/data/2.5/weather?id=1845604&appid=8354ba5e11c5b42f5cd7edd3b2f2f6c0'
+      response = Unirest.get 'https://api.openweathermap.org/data/2.5/weather?id=1845604&appid=8354ba5e11c5b42f5cd7edd3b2f2f6c0&units=metric', 
+                        headers:{ "Accept" => "application/json" }
 
                         
-    # # puts(response.code)
-    # # puts(response.body) # Parsed body
-    # @temperature = response.body['main']['temp']
-    # @supdo = response.body['main']['humidity']
-    # # puts(temperature)      
+      # puts(response.code)
+      # puts(response.body) # Parsed body
+      @temperature = response.body['main']['temp']
+      @supdo = response.body['main']['humidity']
+      # puts(temperature)      
+      return @temperature
     
-    # end
+    end
     
-    # def bob
-    #   bok_url = 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date=2018-04-18'
-    #   response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date=2018-04-18',
-    #                       header:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
+    def self.bob
+      bok_url = 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date=2018-04-18'
+      response = Unirest.get 'https://bablabs.com/openapi/v1/campuses/WNtKMDqIcl/stores?type&date=2018-04-18',
+                          headers:{"Accesstoken" => "6hpogihj4qV8NL8FEQrcJ79KeqauppoWcW6ZfYnbruxqdRvGOf"}
                           
-    #   @meal = response
-      
-    # end
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      puts(response.body["stores"][0]["menus"][0]["description"])                          
+      @meal = response.body["stores"][0]["menus"][0]["description"]
+      # @meal = response.body["stores"]["menus"]["description"]
+      # puts(response.body["stores"]["menus"].class)
+      return @meal
+    end
+  
     def chat_control
       
         received_data = JSON.parse(request.raw_post)
@@ -55,7 +51,7 @@ class HomeController < ApplicationController
         type_name = received_data["type"]
         content = received_data["content"]
         
-        puts(user_key, type_name, content)
+        # puts(user_key, type_name, content)
         
         main_menu = ["전자공학부 홈페이지",
         "종합정보시스템",
@@ -121,26 +117,39 @@ class HomeController < ApplicationController
                   "브래드보드 사용법",
                   "가변저항 사용법",
                   "함수발생기 사용법",
-                  "오실로스코프 사용법(작성중)",
-                  "아날로그 멀티미터(테스터기) 사용법(작성중)",
-                  "디지털 멀티미터 사용법(작성중)",
-                  "전원공급기 사용법(작성중)",
-                  "납땜하는 방법(작성중)",
+                  "오실로스코프 사용법",
+                  "아날로그 멀티미터(테스터기) 사용법",
+                  "디지털 멀티미터 사용법",
+                  "전원공급기 사용법",
+                  "납땜하는 방법",
                   "피스파이스 사용법",
-                  "MATLAB 사용법(작성중)"]
+                  "MATLAB 사용법"]
                   
         formula_menu = ["■처음으로", 
         "단위",
-        "각종상수들(업뎃중)",   #"빛의 속도",입실론0...
-        "삼각함수공식(업뎃중)", #고딩수학공식들묶어서 등비수열, 근의공식
-        "오일러 공식(업뎃중)", 
-        "Y-Δ 변환(업뎃중)",
-        "반도체전류공식(업뎃중)",
-        "계속 추가할 예정(업뎃중)",
-        "플립플롭 진리표(업뎃중)"
+        "각종상수들",   #"빛의 속도",입실론0...,전하의질량
+        "주기율표",
+        "미적분공식",
+        "삼각함수공식", #고딩수학공식들묶어서 등비수열, 근의공식
+        "라플라스 변환",
+        "푸리에 급수/변환",
+        "등비수열 공식",
+        "근의 공식",
+        "오일러 공식", 
+        "Y-Δ 변환",
+        "R,L,C관계식",
+        "페이저",
+        "데시벨",
+        "콘볼루션",
+        "반도체전류공식",
+        "플립플롭 진리표",
+        "가우스의법칙",
+        "맥스웰 방정식",
+        "왼손,오른손법칙",
+        "계속 추가할 예정(처음으로)"
         ]
         
-        random_reply = ["표어는 개신(開新, NOVA APERIO), 건학이념은 진리, 정의, 개척.",
+        random_reply = ["충북대학교의 표어는 개신(開新, NOVA APERIO), 건학이념은 진리, 정의, 개척.",
         
         "거점국립대 중에서 제주대 다음으로 학생 수가 적다. 다른 거점국립대의 학생수가 2만명 초반~3만명 근접인데에 비하여 심하게 적은 학생수이다. 기본적으로 충북 인구가 적은데다가 전통적으로 청주는 청주대, 서원대, 교원대 등 규모있는 4년제 대학이 많은 것이 이유로 보인다.",
         
@@ -162,13 +171,31 @@ class HomeController < ApplicationController
         ].sample
         
         
+        
+        
+        
         if content == "전자공학부 홈페이지"
+            # puts('start')
+            # response = Unirest.get 'https://api.openweathermap.org/data/2.5/weather?id=1845604&appid=8354ba5e11c5b42f5cd7edd3b2f2f6c0&units=metric', 
+            #             headers:{ "Accept" => "application/json" }
+            # puts('second')
+            # # puts(response.code)
+            # # puts(response.body) # Parsed body
+            # temperature = response.body['main']['temp']
+            # puts('third')
+            # puts(temperature)
+            # puts(temperature.class)
+            # print(temperature + 'fdsfds')
+            # @supdo = response.body['main']['humidity']
+            
             msg = {
               message: {
-                text: "흠...",
+                    # "text": temperature.to_s(),
+                    # "text": HomeController.index().to_s(),
+                    "text": HomeController.bob().to_s(),
                      "message_button": {
-                      "label": "전자공학부",
-                      "url": "http://elec.chungbuk.ac.kr/index.php"
+                        "label": "전자공학부",
+                        "url": "http://elec.chungbuk.ac.kr/index.php"
                     }
               },
                
@@ -1300,13 +1327,13 @@ class HomeController < ApplicationController
                                         msg = {
                                           message: {
                                             "photo": {
-                                              "url": "http://cfile5.uf.tistory.com/image/99B511395AD5FCE536197B",
+                                              "url": "http://cfile5.uf.tistory.com/image/99142B345ADD2DAE058743",
                                               "width": 720,
                                               "height": 630
                                             },
                                             message_button: {
                                               "label": "자세히보기",
-                                              "url": "http://dogbok.tistory.com/"
+                                              "url": "http://dogbok.tistory.com/119?category=998769"
                                             }
                                           },
                                           keyboard: {
@@ -1316,17 +1343,17 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok  
                                         
-                                    elsif content == "오실로스코프 사용법(작성중)"
+                                    elsif content == "오실로스코프 사용법"
                                         msg = {
                                           message: {
                                             "photo": {
-                                              "url": "http://cfile5.uf.tistory.com/image/99B511395AD5FCE536197B",
+                                              "url": "https://dthumb-phinf.pstatic.net/?src=%22http%3A%2F%2Fphyslab.snu.ac.kr%2Fnewphyslab%2Flab%2Fimage%2Foscillo%2Foscil01.jpg%22&type=w620",
                                               "width": 720,
                                               "height": 630
                                             },
                                             message_button: {
                                               "label": "자세히보기",
-                                              "url": "http://dogbok.tistory.com/"
+                                              "url": "http://dogbok.tistory.com/113?category=998769"
                                             }
                                           },
                                           keyboard: {
@@ -1336,17 +1363,17 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok  
 
-                                    elsif content == "테스터기 사용법(작성중)"
+                                    elsif content == "아날로그 멀티미터(테스터기) 사용법"
                                         msg = {
                                           message: {
                                             "photo": {
-                                              "url": "http://cfile5.uf.tistory.com/image/99B511395AD5FCE536197B",
+                                              "url": "http://img1.daumcdn.net/thumb/R1920x0/?fname=http%3A%2F%2Fcfile30.uf.tistory.com%2Fimage%2F244B844A5910EB97156FC2",
                                               "width": 720,
                                               "height": 630
                                             },
                                             message_button: {
                                               "label": "자세히보기",
-                                              "url": "http://dogbok.tistory.com/"
+                                              "url": "http://dogbok.tistory.com/114?category=998769"
                                             }
                                           },
                                           keyboard: {
@@ -1357,17 +1384,17 @@ class HomeController < ApplicationController
                                         render json: msg, status: :ok  
 
 
-                                    elsif content == "디지털 멀티미터 사용법(작성중)"
+                                    elsif content == "디지털 멀티미터 사용법"
                                         msg = {
                                           message: {
                                             "photo": {
-                                              "url": "http://cfile5.uf.tistory.com/image/99B511395AD5FCE536197B",
+                                              "url": "http://cfile29.uf.tistory.com/image/9923834B5ADD2F263187FD",
                                               "width": 720,
                                               "height": 630
                                             },
                                             message_button: {
                                               "label": "자세히보기",
-                                              "url": "http://dogbok.tistory.com/"
+                                              "url": "http://dogbok.tistory.com/115?category=998769"
                                             }
                                           },
                                           keyboard: {
@@ -1377,17 +1404,17 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok              
 
-                                    elsif content == "전원공급기 사용법(작성중)"
+                                    elsif content == "전원공급기 사용법"
                                         msg = {
                                           message: {
                                             "photo": {
-                                              "url": "http://cfile5.uf.tistory.com/image/99B511395AD5FCE536197B",
+                                              "url": "https://postfiles.pstatic.net/MjAxNzA5MTJfMjQg/MDAxNTA1MTQyMTEzMjc5.sFUrcTZTnwATM1HYpLCu-tQxorV3m58SnEGHh_JC_2Ag.QN1Uc_xc6dQ6Ebm4xLo45Q7TIikWZhvhiQjZ0C9SrNEg.JPEG.cj3024/DC_Power_supply_cv%EC%83%81%ED%83%9C.jpg?type=w773",
                                               "width": 720,
                                               "height": 630
                                             },
                                             message_button: {
                                               "label": "자세히보기",
-                                              "url": "http://dogbok.tistory.com/"
+                                              "url": "http://dogbok.tistory.com/116?category=998769"
                                             }
                                           },
                                           keyboard: {
@@ -1397,17 +1424,17 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok  
 
-                                    elsif content == "납땜하는 방법(작성중)"
+                                    elsif content == "납땜하는 방법"
                                         msg = {
                                           message: {
                                             "photo": {
-                                              "url": "http://cfile5.uf.tistory.com/image/99B511395AD5FCE536197B",
+                                              "url": "http://kocoafab.cc//data/201508241452302866.jpg",
                                               "width": 720,
                                               "height": 630
                                             },
                                             message_button: {
                                               "label": "자세히보기",
-                                              "url": "http://dogbok.tistory.com/"
+                                              "url": "http://dogbok.tistory.com/117?category=998769"
                                             }
                                           },
                                           keyboard: {
@@ -1444,17 +1471,17 @@ class HomeController < ApplicationController
                                           }
                                         }
                                         render json: msg, status: :ok                                        
-                                    elsif content == "MATLAB 사용법(작성중)"
+                                    elsif content == "MATLAB 사용법"
                                         msg = {
                                           message: {
                                             "photo": {
-                                              "url": "http://cfile5.uf.tistory.com/image/99B511395AD5FCE536197B",
+                                              "url": "http://cfile29.uf.tistory.com/image/990FEC505ADD2FB6101723",
                                               "width": 720,
                                               "height": 630
                                             },
                                             message_button: {
                                               "label": "자세히보기",
-                                              "url": "http://dogbok.tistory.com/"
+                                              "url": "http://dogbok.tistory.com/118?category=998769"
                                             }
                                           },
                                           keyboard: {
@@ -1499,7 +1526,25 @@ class HomeController < ApplicationController
                                         }
                                         render json: msg, status: :ok 
                                         
-                                       
+                                    elsif content == ""
+                                        msg = {
+                                          message: {
+                                            "photo": {
+                                              "url": "http://cfile25.uf.tistory.com/image/9964AE4F5AD71B7A28E9B8",
+                                              "width": 720,
+                                              "height": 630
+                                            },
+                                            message_button: {
+                                              "label": "자세히보기",
+                                              "url": "http://dogbok.tistory.com/80?category=999164"
+                                            }
+                                          },
+                                          keyboard: {
+                                            type: "buttons",
+                                            buttons: formula_menu
+                                          }
+                                        }
+                                        render json: msg, status: :ok                                       
 
 
 
