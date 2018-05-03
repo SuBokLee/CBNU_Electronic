@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'home/index'
+    get 'home/index'
     get '/keyboard' => 'home#keyboard_init'
     post '/message' => 'home#chat_control'
     
