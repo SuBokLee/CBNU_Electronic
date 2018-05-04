@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # 충북대찌릿
+  # 충북대찌릿test
   require 'unirest'
 
   
