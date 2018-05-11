@@ -244,7 +244,7 @@ class HomeController < ApplicationController
     end       
     
     
-    def chat_control
+
       
         received_data = JSON.parse(request.raw_post)
         user_key = received_data["user_key"]
